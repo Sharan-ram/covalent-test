@@ -1,5 +1,5 @@
 function WalletBalance() {
-  return <div className="w-2/6">Wallet Balance</div>;
+  return <div>Wallet Balance</div>;
 }
 
 export default WalletBalance;
