@@ -1,6 +1,6 @@
-import SearchSection from "./Components/CompositeComponents/SearchSection";
-import ProfileSection from "./Components/CompositeComponents/ProfileSection";
-import DetailSection from "./Components/CompositeComponents/DetailSection";
+import SearchSection from "./Components/CompositeComponents/Sections/Search";
+import ProfileSection from "./Components/CompositeComponents/Sections/Profile";
+import DetailSection from "./Components/CompositeComponents/Sections/Details";
 
 const MainContent = () => {
   return (

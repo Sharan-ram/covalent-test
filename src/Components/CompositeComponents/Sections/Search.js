@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Input from "../AtomicComponents/Input";
+import Input from "../../AtomicComponents/Input";
 
 function SearchSection() {
   const [value, setValue] = useState("");
