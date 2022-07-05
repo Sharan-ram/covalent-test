@@ -487,15 +487,15 @@ video {
   width: 40%;
 }
 
-.w-1\/6 {
-  width: 16.666667%;
+.w-1\/12 {
+  width: 8.333333%;
 }
 
-.w-3\/6 {
-  width: 50%;
+.w-7\/12 {
+  width: 58.333333%;
 }
 
-.w-2\/6 {
+.w-4\/12 {
   width: 33.333333%;
 }
 
@@ -535,7 +535,26 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }

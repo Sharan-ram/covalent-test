@@ -1,5 +1,5 @@
 function UserAddress() {
-  return <div>User Address</div>;
+  return <div className="text-gray-500">User Address</div>;
 }
 
 export default UserAddress;
