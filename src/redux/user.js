@@ -14,7 +14,6 @@ const initialState = {
 export const fetchAssets = createAsyncThunk(
   "user/fetchAssets",
   async ({ chain_id, userAddress }, thunkApi, _) => {
-    console.log("inside fetchAssets");
     try {
       const res = await fetchAssetsApiHandler({ chain_id, userAddress });
       return res;
@@ -36,7 +35,7 @@ export const user = createSlice({
     [fetchAssets.pending]: (state) => {
       state.fetchTransactionsProgress = "inProgress";
     },
-    [fetchAssets.rejected]: (state, { payload, error }) => {
+    [fetchAssets.rejected]: (state, { error }) => {
       state.fetchTransactionsProgress = "complete";
       state.error = error;
     },
@@ -46,5 +45,11 @@ export const user = createSlice({
 export const getUserAddress = (state) => state.user.address;
 
 export const getUserAssets = (state) => state.user.assets;
+
+export const getWalletBalance = (state) => {
+  return Math.trunc(
+    state.user.assets.reduce((total, cur) => total + cur.finalValue, 0)
+  );
+};
 
 export default user.reducer;
