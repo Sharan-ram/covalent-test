@@ -47,7 +47,12 @@ function Transactions() {
                   {truncateString(tx_hash, 6, 4)}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  {/* {finalPrice.toFixed(2)} */}
+                  <div>{from_address === userAddress ? "Send" : "Receive"}</div>
+                  <div>
+                    {from_address === userAddress
+                      ? truncateString(to_address, 6, 5)
+                      : truncateString(from_address, 6, 4)}
+                  </div>
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   {/* {finalBalance.toFixed(4)} */}
