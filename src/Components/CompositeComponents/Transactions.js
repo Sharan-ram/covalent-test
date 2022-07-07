@@ -38,6 +38,7 @@ function Transactions() {
               from_address,
               to_address,
               tx_hash,
+              fees_paid,
               gas_quote,
               value,
             } = transaction;
@@ -68,7 +69,13 @@ function Transactions() {
                   )}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  {/* {finalValue.toFixed(2)} */}
+                  {from_address === userAddress && Number(value) && (
+                    <div>
+                      Gas Fee {(fees_paid * Math.pow(10, -18)).toFixed(2)} ETH
+                      ($
+                      {gas_quote.toFixed(2)})
+                    </div>
+                  )}
                 </td>
               </tr>
             );
