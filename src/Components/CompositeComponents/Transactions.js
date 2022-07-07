@@ -20,6 +20,12 @@ function Transactions() {
     transactions.length === 0 && dispatch(fetchTransactions({ userAddress }));
   }, [dispatch, userAddress, transactions.length]);
 
+  const truncateString = (str, firstLength, lastLength) => {
+    return (
+      str.slice(0, firstLength - 1) + "..." + str.slice(str.length - lastLength)
+    );
+  };
+
   // console.log({ assets });
   return (
     <div>
@@ -38,6 +44,7 @@ function Transactions() {
               <tr className="border-t border-t-[#eff3f8]">
                 <td className="py-2 text-xs text-[#19233c]">
                   <DateAndTime date={block_signed_at} />
+                  {truncateString(tx_hash, 6, 4)}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   {/* {finalPrice.toFixed(2)} */}
