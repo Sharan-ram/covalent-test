@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  address: "0x5ed3608242a1e9cccf45198d78ac2c7d54cd484f",
+  address: "",
 };
 
 export const user = createSlice({
