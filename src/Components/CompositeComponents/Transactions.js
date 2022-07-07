@@ -18,7 +18,7 @@ function Transactions() {
   console.log({ transactions });
 
   useEffect(() => {
-    transactions.length === 0 && dispatch(fetchTransactions({ userAddress }));
+    dispatch(fetchTransactions({ userAddress }));
   }, [dispatch, userAddress, transactions.length]);
 
   const truncateString = (str, firstLength, lastLength) => {

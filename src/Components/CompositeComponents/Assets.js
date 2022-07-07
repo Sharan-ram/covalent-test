@@ -15,7 +15,7 @@ function Assets() {
   const assets = useSelector(getUserAssets);
 
   useEffect(() => {
-    assets.length === 0 && dispatch(fetchAssets({ userAddress }));
+    dispatch(fetchAssets({ userAddress }));
   }, [dispatch, userAddress, assets.length]);
 
   console.log({ assets });
