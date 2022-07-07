@@ -21,3 +21,15 @@ export const fetchAssets = async ({ chain_id = 1, userAddress }) => {
     })
     .filter((item) => item.finalValue >= 0.00001);
 };
+
+export const fetchTransactions = async ({
+  chain_id = 1,
+  userAddress,
+  pageNumber = 0,
+  pageSize = 20,
+}) => {
+  const url = `${process.env.REACT_APP_BASE_URL}/${chain_id}/address/${userAddress}/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&page-number=${pageNumber}&page-size=${pageSize}&key=${process.env.REACT_APP_API_KEY}`;
+  const res = await axios.get(url);
+  console.log({ res });
+  return res.data.data.items;
+};

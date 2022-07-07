@@ -8,7 +8,7 @@ import Transactions from "../Transactions";
 function DetailSection() {
   const activeTab = useSelector(getActiveTab);
   return (
-    <div>
+    <div className="w-5/6 mx-auto">
       <Tabs />
       {activeTab === "assets" && <Assets />}
       {activeTab === "transactions" && <Transactions />}

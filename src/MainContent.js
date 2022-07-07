@@ -5,9 +5,13 @@ import DetailSection from "./Components/CompositeComponents/Sections/Details";
 const MainContent = () => {
   return (
     <div className="w-4/5">
-      <div className="w-5/6 mx-auto">
+      <div className="bg-[#fafbfc]">
         <SearchSection />
+      </div>
+      <div className="bg-[#fafbfc]">
         <ProfileSection />
+      </div>
+      <div className="bg-[#eff3f8]">
         <DetailSection />
       </div>
     </div>

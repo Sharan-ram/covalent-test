@@ -4,7 +4,7 @@ import WalletBalance from "../WalletBalance";
 
 function ProfileSection() {
   return (
-    <div className="py-6 flex items-center">
+    <div className="w-5/6 mx-auto py-6 flex items-center">
       <div className="w-1/12">
         <Avatar />
       </div>
