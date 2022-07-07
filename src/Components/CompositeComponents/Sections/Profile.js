@@ -11,7 +11,7 @@ function ProfileSection() {
       <div className="w-7/12 px-8">
         <UserAddress />
       </div>
-      <div className="w-4/12">
+      <div className="w-4/12 text-right">
         <WalletBalance />
       </div>
     </div>

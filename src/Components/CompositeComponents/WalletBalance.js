@@ -1,5 +1,14 @@
+import { useSelector } from "react-redux";
+import { getWalletBalance } from "../../redux/user";
+
 function WalletBalance() {
-  return <div className="text-2xl font-bold">Wallet Balance</div>;
+  const walletBalance = useSelector(getWalletBalance);
+  const formatNumber = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+  const formattedWalletBalance = formatNumber.format(walletBalance);
+  return <div className="text-3xl font-black">{formattedWalletBalance}</div>;
 }
 
 export default WalletBalance;
