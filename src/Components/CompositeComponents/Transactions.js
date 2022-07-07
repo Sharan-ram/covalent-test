@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   fetchTransactions,
-  getUserAddress,
   getUserTransactions,
-} from "../../redux/user";
+} from "../../redux/transactions";
+
+import { getUserAddress } from "../../redux/user";
 
 function Transactions() {
   const dispatch = useDispatch();

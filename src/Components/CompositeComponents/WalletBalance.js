@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import classnames from "classnames";
-import { getWalletBalance } from "../../redux/user";
+import { getWalletBalance } from "../../redux/assets";
 
 function WalletBalance({ type = "large" }) {
   const walletBalance = useSelector(getWalletBalance);
