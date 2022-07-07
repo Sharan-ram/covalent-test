@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -55,7 +56,16 @@ function Transactions() {
                   </div>
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  {/* {finalBalance.toFixed(4)} */}
+                  {Number(value) && (
+                    <div
+                      className={classNames({
+                        "text-green-500": from_address !== userAddress,
+                      })}
+                    >
+                      {from_address === userAddress ? "-" : "+"}{" "}
+                      {(Number(value) * Math.pow(10, -18)).toFixed(2)} ETH
+                    </div>
+                  )}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   {/* {finalValue.toFixed(2)} */}
