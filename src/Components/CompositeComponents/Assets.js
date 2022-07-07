@@ -9,6 +9,8 @@ import WalletBalance from "./WalletBalance";
 
 import WalletIcon from "../../assets/images/Wallet.svg";
 
+import { TableRowHead } from "../AtomicComponents/Table";
+
 function Assets() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
@@ -32,12 +34,12 @@ function Assets() {
       </div>
       <div className="bg-white p-4 rounded-md">
         <table className="w-full text-center">
-          <tr className="bg-[#eff3f8]">
-            <th className="py-2">Assets</th>
-            <th className="py-2">Price</th>
-            <th className="py-2">Balance</th>
-            <th className="py-2">Value</th>
-          </tr>
+          {/* <tr className="bg-[#eff3f8]">
+            {["Assets", "Price", "Balance", "Value"].map((item) => {
+              return <th className="py-2">{item}</th>;
+            })}
+          </tr> */}
+          <TableRowHead data={["Assets", "Price", "Balance", "Value"]} />
           {assets.map((asset) => {
             const {
               contract_ticker_symbol,
