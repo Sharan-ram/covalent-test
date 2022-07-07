@@ -11,7 +11,7 @@ const MainContent = () => {
       <div className="bg-[#fafbfc]">
         <ProfileSection />
       </div>
-      <div className="bg-[#eff3f8]">
+      <div className="bg-[#eff3f8] pb-8">
         <DetailSection />
       </div>
     </div>
