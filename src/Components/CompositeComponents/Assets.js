@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  fetchAssets,
-  getUserAssets,
-  getWalletBalance,
-} from "../../redux/assets";
+import { fetchAssets, getUserAssets } from "../../redux/assets";
 
 import { getUserAddress } from "../../redux/user";
 
@@ -17,8 +13,6 @@ function Assets() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
   const assets = useSelector(getUserAssets);
-  const walletBalance = useSelector(getWalletBalance);
-  console.log({ assets });
 
   useEffect(() => {
     assets.length === 0 && dispatch(fetchAssets({ userAddress }));
