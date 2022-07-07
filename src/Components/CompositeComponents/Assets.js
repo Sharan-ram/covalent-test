@@ -10,6 +10,7 @@ import WalletBalance from "./WalletBalance";
 import WalletIcon from "../../assets/images/Wallet.svg";
 
 import { TableRowHead } from "../AtomicComponents/Table";
+import TickerIconAndSymbol from "./TickerIconAndSymbol";
 
 function Assets() {
   const dispatch = useDispatch();
@@ -34,11 +35,6 @@ function Assets() {
       </div>
       <div className="bg-white p-4 rounded-md">
         <table className="w-full text-center">
-          {/* <tr className="bg-[#eff3f8]">
-            {["Assets", "Price", "Balance", "Value"].map((item) => {
-              return <th className="py-2">{item}</th>;
-            })}
-          </tr> */}
           <TableRowHead data={["Assets", "Price", "Balance", "Value"]} />
           {assets.map((asset) => {
             const {
@@ -51,19 +47,17 @@ function Assets() {
             return (
               <tr className="border-t border-t-[#eff3f8]">
                 <td className="py-2 text-xs text-[#19233c]">
-                  <div className="w-1/3 mx-auto flex justify-start items-center">
-                    <div className="w-5">
-                      <img
-                        src={logo_url}
-                        className="rounded-full"
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = "";
-                        }}
-                      />
-                    </div>
-                    <div className="ml-2">{contract_ticker_symbol}</div>
-                  </div>
+                  <TickerIconAndSymbol
+                    icon={logo_url}
+                    symbol={contract_ticker_symbol}
+                    classes={{
+                      iconAndSymbolWrapper:
+                        "w-1/3 mx-auto flex justify-start items-center",
+                      imageWrapper: "w-5",
+                      image: "rounded-full",
+                      symbol: "ml-2",
+                    }}
+                  />
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   ${finalPrice.toFixed(2)}
