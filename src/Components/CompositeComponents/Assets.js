@@ -8,6 +8,10 @@ import {
   getWalletBalance,
 } from "../../redux/user";
 
+import WalletBalance from "./WalletBalance";
+
+import WalletIcon from "../../assets/images/Wallet.svg";
+
 function Assets() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
@@ -22,8 +26,16 @@ function Assets() {
   console.log({ assets });
   return (
     <div>
-      Wallet {walletBalance}
-      <div className="bg-white p-4">
+      <div className="flex items-center mb-2 justify-between">
+        <div className="flex items-center">
+          <div className="w-5">
+            <img src={WalletIcon} />
+          </div>
+          <div className="text-xl ml-2">Wallet</div>
+        </div>
+        <WalletBalance type="small" />
+      </div>
+      <div className="bg-white p-4 rounded-md">
         <table className="w-full text-center">
           <tr className="bg-[#eff3f8]">
             <th className="py-2">Assets</th>
