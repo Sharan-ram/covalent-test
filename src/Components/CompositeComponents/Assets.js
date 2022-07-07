@@ -9,7 +9,7 @@ import WalletBalance from "./WalletBalance";
 
 import WalletIcon from "../../assets/images/Wallet.svg";
 
-import { TableRowHead } from "../AtomicComponents/Table";
+import { TableRowHead, TableRow } from "../AtomicComponents/Table";
 import TickerIconAndSymbol from "./TickerIconAndSymbol";
 
 function Assets() {
@@ -22,6 +22,32 @@ function Assets() {
   }, [dispatch, userAddress, assets.length]);
 
   console.log({ assets });
+
+  const getTableRowData = (asset) => {
+    const {
+      contract_ticker_symbol,
+      logo_url,
+      finalPrice,
+      finalBalance,
+      finalValue,
+    } = asset;
+    return [
+      <TickerIconAndSymbol
+        icon={logo_url}
+        symbol={contract_ticker_symbol}
+        classes={{
+          iconAndSymbolWrapper: "w-1/3 mx-auto flex justify-start items-center",
+          imageWrapper: "w-5",
+          image: "rounded-full",
+          symbol: "ml-2",
+        }}
+      />,
+      <div>${finalPrice.toFixed(2)}</div>,
+      <div>{finalBalance.toFixed(4)}</div>,
+      <div>${finalValue.toFixed(2)}</div>,
+    ];
+  };
+
   return (
     <div>
       <div className="flex items-center mb-2 justify-between">
@@ -37,39 +63,7 @@ function Assets() {
         <table className="w-full text-center">
           <TableRowHead data={["Assets", "Price", "Balance", "Value"]} />
           {assets.map((asset) => {
-            const {
-              contract_ticker_symbol,
-              logo_url,
-              finalPrice,
-              finalBalance,
-              finalValue,
-            } = asset;
-            return (
-              <tr className="border-t border-t-[#eff3f8]">
-                <td className="py-2 text-xs text-[#19233c]">
-                  <TickerIconAndSymbol
-                    icon={logo_url}
-                    symbol={contract_ticker_symbol}
-                    classes={{
-                      iconAndSymbolWrapper:
-                        "w-1/3 mx-auto flex justify-start items-center",
-                      imageWrapper: "w-5",
-                      image: "rounded-full",
-                      symbol: "ml-2",
-                    }}
-                  />
-                </td>
-                <td className="py-2 text-xs text-[#19233c]">
-                  ${finalPrice.toFixed(2)}
-                </td>
-                <td className="py-2 text-xs text-[#19233c]">
-                  {finalBalance.toFixed(4)}
-                </td>
-                <td className="py-2 text-xs text-[#19233c]">
-                  ${finalValue.toFixed(2)}
-                </td>
-              </tr>
-            );
+            return <TableRow data={getTableRowData(asset)} />;
           })}
         </table>
       </div>
