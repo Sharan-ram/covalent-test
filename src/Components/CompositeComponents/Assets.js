@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   fetchAssets,
-  getUserAddress,
   getUserAssets,
   getWalletBalance,
-} from "../../redux/user";
+} from "../../redux/assets";
+
+import { getUserAddress } from "../../redux/user";
 
 import WalletBalance from "./WalletBalance";
 
