@@ -1,10 +1,13 @@
 import AvatarLogo from "../../assets/images/Avatar.png";
+import Image from "./Image";
 
 function Avatar() {
   return (
-    <div className="w-20">
-      <img className="rounded-full" src={AvatarLogo} alt="avatar" />
-    </div>
+    <Image
+      src={AvatarLogo}
+      classes={{ imageWrapper: "w-20", image: "rounded-full" }}
+      alt="avatar"
+    />
   );
 }
 
