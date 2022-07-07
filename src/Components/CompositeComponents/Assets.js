@@ -42,7 +42,19 @@ function Assets() {
             return (
               <tr className="border-t border-t-[#eff3f8]">
                 <td className="py-2 text-xs text-[#19233c]">
-                  {contract_ticker_symbol}
+                  <div className="w-1/3 mx-auto flex justify-start items-center">
+                    <div className="w-5">
+                      <img
+                        src={logo_url}
+                        className="rounded-full"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "";
+                        }}
+                      />
+                    </div>
+                    <div className="ml-2">{contract_ticker_symbol}</div>
+                  </div>
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   {finalPrice.toFixed(2)}
