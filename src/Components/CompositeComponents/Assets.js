@@ -64,13 +64,13 @@ function Assets() {
                   </div>
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  {finalPrice.toFixed(2)}
+                  ${finalPrice.toFixed(2)}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
                   {finalBalance.toFixed(4)}
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  {finalValue.toFixed(2)}
+                  ${finalValue.toFixed(2)}
                 </td>
               </tr>
             );
