@@ -1,7 +1,7 @@
 import MainContent from "./MainContent";
 
 const SideBar = () => {
-  return <div className="w-1/5">This is sidebar</div>;
+  return <div className="w-1/5 bg-white"></div>;
 };
 
 const Layout = () => {

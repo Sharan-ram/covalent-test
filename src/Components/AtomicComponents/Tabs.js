@@ -11,8 +11,8 @@ function Tabs() {
       <div
         onClick={() => dispatch(toggleActiveTab())}
         className={classnames({
-          "w-1/2 text-lg flex justify-center cursor-pointer": true,
-          "border-b-2 text-orange-500/100 border-b-orange-500/100":
+          "w-1/2 pb-2.5 text-sm text-[#8b93a7] font-semibold flex justify-center cursor-pointer": true,
+          "border-b-4 text-orange-500/100 border-b-orange-500/100":
             activeTab === "assets",
         })}
       >
@@ -21,8 +21,8 @@ function Tabs() {
       <div
         onClick={() => dispatch(toggleActiveTab())}
         className={classnames({
-          "w-1/2 text-lg flex justify-center cursor-pointer": true,
-          "border-b-2 text-orange-500/100 border-b-orange-500/100":
+          "w-1/2 pb-2.5 text-sm text-[#8b93a7] font-semibold flex justify-center cursor-pointer": true,
+          "border-b-4 text-orange-500/100 border-b-orange-500/100":
             activeTab === "transactions",
         })}
       >

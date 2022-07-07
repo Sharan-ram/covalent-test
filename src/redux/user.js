@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { fetchAssets as fetchAssetsApiHandler } from "../api";
+import {
+  fetchAssets as fetchAssetsApiHandler,
+  fetchTransactions as fetchTransactionsApiHandler,
+} from "../api";
 
 const initialState = {
   address: "0x11577a8a5baf1e25b9a2d89f39670f447d75c3cd",
@@ -16,6 +19,18 @@ export const fetchAssets = createAsyncThunk(
   async ({ chain_id, userAddress }, thunkApi, _) => {
     try {
       const res = await fetchAssetsApiHandler({ chain_id, userAddress });
+      return res;
+    } catch (err) {
+      return thunkApi.rejectWithValue([], err);
+    }
+  }
+);
+
+export const fetchTransactions = createAsyncThunk(
+  "user/fetchTransactions",
+  async ({ chain_id, userAddress }, thunkApi, _) => {
+    try {
+      const res = await fetchTransactionsApiHandler({ chain_id, userAddress });
       return res;
     } catch (err) {
       return thunkApi.rejectWithValue([], err);
@@ -51,5 +66,7 @@ export const getWalletBalance = (state) => {
     state.user.assets.reduce((total, cur) => total + cur.finalValue, 0)
   );
 };
+
+export const getUserTransactions = (state) => state.user.transactions;
 
 export default user.reducer;
