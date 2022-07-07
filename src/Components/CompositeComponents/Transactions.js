@@ -32,7 +32,7 @@ function Transactions() {
     <div>
       <div className="bg-white p-4 rounded-md">
         <table className="w-full text-center">
-          {transactions.map((transaction) => {
+          {transactions.map((transaction, index) => {
             const {
               block_signed_at,
               from_address,
@@ -43,16 +43,25 @@ function Transactions() {
               value,
             } = transaction;
             return (
-              <tr className="border-t border-t-[#eff3f8]">
-                <td className="py-2 text-xs text-[#19233c]">
-                  <DateAndTime date={block_signed_at} />
-                  {truncateString(tx_hash, 6, 4)}
+              <tr
+                className={classNames({
+                  "border-t": index === 0 ? false : true,
+                  "border-t-[#eff3f8]": true,
+                })}
+              >
+                <td className="py-2 text-xs text-[#8b93a7]">
+                  <div className="mb-1">
+                    <DateAndTime date={block_signed_at} />
+                  </div>
+                  <div>{truncateString(tx_hash, 6, 4)}</div>
                 </td>
                 <td className="py-2 text-xs text-[#19233c]">
-                  <div>{from_address === userAddress ? "Send" : "Receive"}</div>
-                  <div>
+                  <div className="text-[#8b93a7] mb-1">
+                    {from_address === userAddress ? "Send" : "Receive"}
+                  </div>
+                  <div className="text-[#19233c]">
                     {from_address === userAddress
-                      ? truncateString(to_address, 6, 5)
+                      ? truncateString(to_address, 6, 4)
                       : truncateString(from_address, 6, 4)}
                   </div>
                 </td>
@@ -68,7 +77,7 @@ function Transactions() {
                     </div>
                   )}
                 </td>
-                <td className="py-2 text-xs text-[#19233c]">
+                <td className="py-2 text-xs text-[#8b93a7]">
                   {from_address === userAddress && Number(value) && (
                     <div>
                       Gas Fee {(fees_paid * Math.pow(10, -18)).toFixed(2)} ETH
