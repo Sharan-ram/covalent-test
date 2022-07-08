@@ -47,7 +47,7 @@ const SendAndReceiveDetails = ({ from_address, to_address, userAddress }) => {
 const ETHTransaction = ({ value, from_address, userAddress }) => {
   return (
     <>
-      {Number(value) && (
+      {Number(value) ? (
         <div
           className={classNames({
             "text-green-500": from_address !== userAddress,
@@ -56,7 +56,7 @@ const ETHTransaction = ({ value, from_address, userAddress }) => {
           {from_address === userAddress ? "-" : "+"}{" "}
           {(Number(value) * Math.pow(10, -18)).toFixed(2)} ETH
         </div>
-      )}
+      ) : null}
     </>
   );
 };
@@ -70,12 +70,12 @@ const GasFeePaid = ({
 }) => {
   return (
     <>
-      {from_address === userAddress && Number(value) && (
+      {from_address === userAddress && Number(value) ? (
         <div className="text-[#8b93a7]">
           Gas Fee {(fees_paid * Math.pow(10, -18)).toFixed(2)} ETH ($
           {gas_quote.toFixed(2)})
         </div>
-      )}
+      ) : null}
     </>
   );
 };
