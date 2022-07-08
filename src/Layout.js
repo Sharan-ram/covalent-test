@@ -5,7 +5,7 @@ import MainContent from "./MainContent";
 import { useEffect } from "react";
 
 const SideBar = () => {
-  return <div className="w-1/5 bg-white"></div>;
+  return <div className="w-2/12 bg-white"></div>;
 };
 
 const Layout = ({
