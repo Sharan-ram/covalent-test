@@ -32,8 +32,6 @@ function Assets() {
     userAddress !== "" && dispatch(fetchAssets({ userAddress }));
   }, [dispatch, userAddress, assets.length]);
 
-  console.log({ assets });
-
   const getTableRowData = (asset) => {
     const {
       contract_ticker_symbol,
