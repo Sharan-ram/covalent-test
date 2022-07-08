@@ -29,7 +29,7 @@ function Assets() {
   const assets = useSelector(getUserAssets);
 
   useEffect(() => {
-    dispatch(fetchAssets({ userAddress }));
+    userAddress !== "" && dispatch(fetchAssets({ userAddress }));
   }, [dispatch, userAddress, assets.length]);
 
   console.log({ assets });

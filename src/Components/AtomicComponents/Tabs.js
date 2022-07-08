@@ -13,9 +13,10 @@ function Tabs({
   const dispatch = useDispatch();
   return (
     <div className="flex justify-between w-1/4">
-      {tabs.map((tab) => {
+      {tabs.map((tab, index) => {
         return (
           <div
+            key={index}
             onClick={() => dispatch(toggleActiveTab())}
             className={classnames({
               "w-1/2 pb-2.5 text-sm text-[#8b93a7] font-semibold flex justify-center cursor-pointer": true,
