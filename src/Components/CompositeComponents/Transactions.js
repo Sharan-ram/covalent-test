@@ -132,17 +132,13 @@ function Transactions() {
     return transactions.map((transaction) => getTableRowData(transaction));
   };
 
-  return (
-    <div className="bg-white p-4 rounded-md">
-      {fetchProgress === "inProgress" ? (
-        <Loader />
-      ) : (
-        <Table
-          classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
-          tableBodyData={getTableBodyData()}
-        />
-      )}
-    </div>
+  return fetchProgress === "inProgress" ? (
+    <Loader />
+  ) : (
+    <Table
+      classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
+      tableBodyData={getTableBodyData()}
+    />
   );
 }
 

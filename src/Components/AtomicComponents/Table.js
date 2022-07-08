@@ -33,7 +33,7 @@ export const TableRow = ({ data, classes }) => {
 
 function Table({ tableHeadData, tableBodyData, classes }) {
   return (
-    <div className="bg-white p-4 rounded-md">
+    <div className="bg-white p-4 rounded-md shadow-md">
       <table className="w-full text-center">
         <thead>{tableHeadData && <TableRowHead data={tableHeadData} />}</thead>
         <tbody>
