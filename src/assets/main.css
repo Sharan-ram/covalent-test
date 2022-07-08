@@ -483,6 +483,10 @@ video {
   display: table;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .w-2\/12 {
   width: 16.666667%;
 }
