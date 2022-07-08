@@ -25,3 +25,17 @@ export const TableRow = ({ data, classes }) => {
     </tr>
   );
 };
+
+function Table({ tableHeadData, tableBodyData, classes }) {
+  return (
+    <div className="bg-white p-4 rounded-md">
+      <table className="w-full text-center">
+        {tableBodyData.map((item) => {
+          return <TableRow classes={classes?.tableBody} data={item} />;
+        })}
+      </table>
+    </div>
+  );
+}
+
+export default Table;

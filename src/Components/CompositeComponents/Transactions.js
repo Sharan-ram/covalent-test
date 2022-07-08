@@ -10,7 +10,7 @@ import {
 import { getUserAddress } from "../../redux/user";
 
 import DateAndTime from "../AtomicComponents/DateAndTime";
-import { TableRow } from "../AtomicComponents/Table";
+import Table from "../AtomicComponents/Table";
 
 const truncateString = (str, firstLength, lastLength) => {
   return (
@@ -125,21 +125,17 @@ function Transactions() {
     ];
   };
 
+  const getTableBodyData = () => {
+    return transactions.map((transaction) => getTableRowData(transaction));
+  };
+
   return (
-    <>
-      <div className="bg-white p-4 rounded-md">
-        <table className="w-full text-center">
-          {transactions.map((transaction, index) => {
-            return (
-              <TableRow
-                classes={{ tr: index !== 0 && "border-t border-t-[#eff3f8]" }}
-                data={getTableRowData(transaction, index)}
-              />
-            );
-          })}
-        </table>
-      </div>
-    </>
+    <div className="bg-white p-4 rounded-md">
+      <Table
+        classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
+        tableBodyData={getTableBodyData()}
+      />
+    </div>
   );
 }
 
