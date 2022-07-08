@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const fetchAssets = async ({ chain_id = 1, userAddress }) => {
+  console.log("fetch assets called");
   const url = `${process.env.REACT_APP_BASE_URL}/${chain_id}/address/${userAddress}/balances_v2/?key=${process.env.REACT_APP_API_KEY}`;
   const res = await axios.get(url);
   return res.data.data.items

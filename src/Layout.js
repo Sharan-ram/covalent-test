@@ -5,12 +5,12 @@ import MainContent from "./MainContent";
 import { useEffect } from "react";
 
 const SideBar = () => {
-  return <div className="w-1/5 bg-white"></div>;
+  return <div className="w-2/12 bg-white"></div>;
 };
 
 const Layout = ({
   match: {
-    params: { userAddress = "0x5ed3608242a1e9cccf45198d78ac2c7d54cd484f" },
+    params: { userAddress = "0x11577a8a5baf1e25b9a2d89f39670f447d75c3cd" },
   },
 }) => {
   const dispatch = useDispatch();

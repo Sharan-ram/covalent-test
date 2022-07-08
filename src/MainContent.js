@@ -6,7 +6,7 @@ import Tabs from "./Components/AtomicComponents/Tabs";
 
 const MainContent = () => {
   return (
-    <div className="w-4/5">
+    <div className="w-10/12">
       <div className="bg-[#fafbfc]">
         <SearchSection />
       </div>
