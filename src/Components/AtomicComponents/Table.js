@@ -12,7 +12,7 @@ export const TableRowHead = ({ classes = {}, data }) => {
 
 export const TableRow = ({ data, classes }) => {
   return (
-    <tr className={classNames("border-t border-t-[#eff3f8]", classes?.tr)}>
+    <tr className={classNames(classes?.tr)}>
       {data.map((item) => {
         return (
           <td

@@ -12,6 +12,17 @@ import WalletIcon from "../../assets/images/Wallet.svg";
 import { TableRowHead, TableRow } from "../AtomicComponents/Table";
 import TickerIconAndSymbol from "./TickerIconAndSymbol";
 
+const WalletIconAndText = () => {
+  return (
+    <div className="flex items-center">
+      <div className="w-5">
+        <img src={WalletIcon} />
+      </div>
+      <div className="text-xl ml-2">Wallet</div>
+    </div>
+  );
+};
+
 function Assets() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
@@ -49,25 +60,25 @@ function Assets() {
   };
 
   return (
-    <div>
+    <>
       <div className="flex items-center mb-2 justify-between">
-        <div className="flex items-center">
-          <div className="w-5">
-            <img src={WalletIcon} />
-          </div>
-          <div className="text-xl ml-2">Wallet</div>
-        </div>
+        <WalletIconAndText />
         <WalletBalance type="small" />
       </div>
       <div className="bg-white p-4 rounded-md">
         <table className="w-full text-center">
           <TableRowHead data={["Assets", "Price", "Balance", "Value"]} />
-          {assets.map((asset) => {
-            return <TableRow data={getTableRowData(asset)} />;
+          {assets.map((asset, index) => {
+            return (
+              <TableRow
+                classes={{ tr: index !== 0 && "border-t border-t-[#eff3f8]" }}
+                data={getTableRowData(asset)}
+              />
+            );
           })}
         </table>
       </div>
-    </div>
+    </>
   );
 }
 
