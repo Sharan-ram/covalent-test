@@ -33,14 +33,16 @@ export const TableRow = ({ data, classes }) => {
 
 function Table({ tableHeadData, tableBodyData, classes }) {
   return (
-    <div className="bg-white p-4 rounded-md">
+    <div className="bg-white p-4 rounded-md shadow-md">
       <table className="w-full text-center">
-        {tableHeadData && <TableRowHead data={tableHeadData} />}
-        {tableBodyData.map((item, index) => {
-          return (
-            <TableRow key={index} classes={classes?.tableBody} data={item} />
-          );
-        })}
+        <thead>{tableHeadData && <TableRowHead data={tableHeadData} />}</thead>
+        <tbody>
+          {tableBodyData.map((item, index) => {
+            return (
+              <TableRow key={index} classes={classes?.tableBody} data={item} />
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchAssets, getUserAssets } from "../../redux/assets";
+import {
+  fetchAssets,
+  getUserAssets,
+  getFetchProgress,
+} from "../../redux/assets";
 
 import { getUserAddress } from "../../redux/user";
 
@@ -10,6 +14,7 @@ import WalletBalance from "./WalletBalance";
 import WalletIcon from "../../assets/images/Wallet.svg";
 
 import Table from "../AtomicComponents/Table";
+import Loader from "../AtomicComponents/Loader";
 import TickerIconAndSymbol from "./TickerIconAndSymbol";
 
 const WalletIconAndText = () => {
@@ -27,12 +32,11 @@ function Assets() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
   const assets = useSelector(getUserAssets);
+  const fetchProgress = useSelector(getFetchProgress);
 
   useEffect(() => {
     userAddress !== "" && dispatch(fetchAssets({ userAddress }));
   }, [dispatch, userAddress, assets.length]);
-
-  console.log({ assets });
 
   const getTableRowData = (asset) => {
     const {
@@ -69,11 +73,15 @@ function Assets() {
         <WalletIconAndText />
         <WalletBalance type="small" />
       </div>
-      <Table
-        classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
-        tableBodyData={getTableBodyData()}
-        tableHeadData={["Assets", "Price", "Balance", "Value"]}
-      />
+      {fetchProgress === "inProgress" ? (
+        <Loader />
+      ) : (
+        <Table
+          classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
+          tableBodyData={getTableBodyData()}
+          tableHeadData={["Assets", "Price", "Balance", "Value"]}
+        />
+      )}
     </>
   );
 }

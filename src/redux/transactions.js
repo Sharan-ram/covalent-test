@@ -41,4 +41,6 @@ export const transactions = createSlice({
 
 export const getUserTransactions = (state) => state.transactions.transactions;
 
+export const getFetchProgress = (state) => state.transactions.fetchProgress;
+
 export default transactions.reducer;

@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchTransactions,
   getUserTransactions,
+  getFetchProgress,
 } from "../../redux/transactions";
 
 import { getUserAddress } from "../../redux/user";
 
 import DateAndTime from "../AtomicComponents/DateAndTime";
 import Table from "../AtomicComponents/Table";
+import Loader from "../AtomicComponents/Loader";
 
 const truncateString = (str, firstLength, lastLength) => {
   return (
@@ -84,6 +86,7 @@ function Transactions() {
   const dispatch = useDispatch();
   const userAddress = useSelector(getUserAddress);
   const transactions = useSelector(getUserTransactions);
+  const fetchProgress = useSelector(getFetchProgress);
   console.log({ transactions });
 
   useEffect(() => {
@@ -129,13 +132,13 @@ function Transactions() {
     return transactions.map((transaction) => getTableRowData(transaction));
   };
 
-  return (
-    <div className="bg-white p-4 rounded-md">
-      <Table
-        classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
-        tableBodyData={getTableBodyData()}
-      />
-    </div>
+  return fetchProgress === "inProgress" ? (
+    <Loader />
+  ) : (
+    <Table
+      classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
+      tableBodyData={getTableBodyData()}
+    />
   );
 }
 

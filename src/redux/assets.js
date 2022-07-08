@@ -41,6 +41,8 @@ export const assets = createSlice({
 
 export const getUserAssets = (state) => state.assets.assets;
 
+export const getFetchProgress = (state) => state.assets.fetchProgress;
+
 export const getWalletBalance = (state) => {
   return Math.trunc(
     state.assets.assets.reduce((total, cur) => total + cur.finalValue, 0)
