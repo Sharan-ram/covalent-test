@@ -9,7 +9,7 @@ import WalletBalance from "./WalletBalance";
 
 import WalletIcon from "../../assets/images/Wallet.svg";
 
-import { TableRowHead, TableRow } from "../AtomicComponents/Table";
+import Table from "../AtomicComponents/Table";
 import TickerIconAndSymbol from "./TickerIconAndSymbol";
 
 const WalletIconAndText = () => {
@@ -59,25 +59,21 @@ function Assets() {
     ];
   };
 
+  const getTableBodyData = () => {
+    return assets.map((asset) => getTableRowData(asset));
+  };
+
   return (
     <>
       <div className="flex items-center mb-2 justify-between">
         <WalletIconAndText />
         <WalletBalance type="small" />
       </div>
-      <div className="bg-white p-4 rounded-md">
-        <table className="w-full text-center">
-          <TableRowHead data={["Assets", "Price", "Balance", "Value"]} />
-          {assets.map((asset, index) => {
-            return (
-              <TableRow
-                classes={{ tr: index !== 0 && "border-t border-t-[#eff3f8]" }}
-                data={getTableRowData(asset)}
-              />
-            );
-          })}
-        </table>
-      </div>
+      <Table
+        classes={{ tableBody: { tr: "border-t border-t-[#eff3f8]" } }}
+        tableBodyData={getTableBodyData()}
+        tableHeadData={["Assets", "Price", "Balance", "Value"]}
+      />
     </>
   );
 }

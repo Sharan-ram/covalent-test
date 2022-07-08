@@ -30,6 +30,7 @@ function Table({ tableHeadData, tableBodyData, classes }) {
   return (
     <div className="bg-white p-4 rounded-md">
       <table className="w-full text-center">
+        {tableHeadData && <TableRowHead data={tableHeadData} />}
         {tableBodyData.map((item) => {
           return <TableRow classes={classes?.tableBody} data={item} />;
         })}
